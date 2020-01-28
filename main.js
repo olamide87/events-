@@ -109,25 +109,40 @@ const pies = [
     selectedDiv.innerHTML = textToPrint;
   };
   
-  const pieBuilder = () => {
+  const pieBuilder = (monkeybuttArray) => {
     let domString = '';
-    for(let i = 0; i < pies.length; i++) {
+    for(let i = 0; i < monkeybuttArray.length; i++) {
         domString += `<div class="pieCard">`;
-        domString += `<header class="name"><h2>${pies[i].name}</h2></header>`;
-        domString += `<section ><img class="imageUrl" src=${pies[i].imageUrl}</section>`;
-        domString += `<section class="price">${pies[i].price}</section>`;
-        domString += `<section class="iceCream">${pies[i].iceCream}</section>`;
-        domString += `<section class="drinkPairing">${pies[i].drinkPairing}</section>`;
-        domString += `<section class="isWarm">${pies[i].isWarm}</section>`;
-        domString += `<section class="instructor">${pies[i].instructor}</section>`;
-        domString += `<section class="isAvailable">${pies[i].isAvailable}</section>`;
-        domString += `<footer class="crust">${pies[i].crust}</section>`;
+        domString += `<header class="name"><h2>${monkeybuttArray[i].name}</h2></header>`;
+        domString += `<section ><img class="imageUrl" src=${monkeybuttArray[i].imageUrl}</section>`;
+        domString += `<section class="price">${monkeybuttArray[i].price}</section>`;
+        domString += `<section class="iceCream">${monkeybuttArray[i].iceCream}</section>`;
+        domString += `<section class="drinkPairing">${monkeybuttArray[i].drinkPairing}</section>`;
+        domString += `<section class="isWarm">${monkeybuttArray[i].isWarm}</section>`;
+        domString += `<section class="instructor">${monkeybuttArray[i].instructor}</section>`;
+        domString += `<section class="isAvailable">${monkeybuttArray[i].isAvailable}</section>`;
+        domString += `<footer class="crust">${monkeybuttArray[i].crust}</section>`;
         domString += `</div>`;
     }
     printToDom('Pet-barn', domString);
   };
+   const findMyPies = (e) => {
+       const buttonId = e.target.id;
+       const myPies = [];
+       for(let i = 0; i < pies.length; i++){
+           if( pies[i].instructor === buttonId ) {
+               myPies.push(pies[i]);
+           }
+       }
+       pieBuilder(myPies);
+   };
+
+
   
-  pieBuilder();
+  pieBuilder(pies);
+  document.getElementById('Zoe').addEventListener('click',findMyPies);
+  document.getElementById('Mary').addEventListener('click', findMyPies);
+  document.getElementById('Luke').addEventListener('click', findMyPies);
   
   
   
