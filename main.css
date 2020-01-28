@@ -1,3 +1,35 @@
 body{
     background-color: chocolate;
 }
+
+
+.pieCard{
+    width: 300px;
+    margin: 20px;
+    background-color: #315659;
+    padding: 10px;
+    box-shadow: 10px 8px 6px -6px white;
+    border-style: double;
+    border-radius: 25px;
+    color: white;
+    
+}
+
+.Title {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+
+
+.imageUrl  {
+    margin: 0 auto;
+    display: block;
+    max-width: 250px;
+}
