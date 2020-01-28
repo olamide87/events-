@@ -128,21 +128,33 @@ const pies = [
   };
    const findMyPies = (e) => {
        const buttonId = e.target.id;
-       const myPies = [];
+       if(buttonId === 'All'){
+         pieBuilder(pies);
+       } else { const myPies = [];
        for(let i = 0; i < pies.length; i++){
            if( pies[i].instructor === buttonId ) {
                myPies.push(pies[i]);
            }
        }
        pieBuilder(myPies);
+   }
    };
 
-
-  
-  pieBuilder(pies);
+  const events = () => {
   document.getElementById('Zoe').addEventListener('click',findMyPies);
   document.getElementById('Mary').addEventListener('click', findMyPies);
   document.getElementById('Luke').addEventListener('click', findMyPies);
+  document.getElementById('All').addEventListener('click', findMyPies); 
+};
+
   
+  const init = () => {
+      pieBuilder(pies);
+      events();
+  };
+
+  init()
+
+
   
   
